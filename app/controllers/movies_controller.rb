@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_user
   def index
     render json: Movie.all
   end
@@ -11,7 +12,7 @@ class MoviesController < ApplicationController
     title: params["title"],
     year: params["year"],
     plot: params["plot"],
-    english: params["english"]
+    director: params["director"]
     )
     if movie.save
       render json: movie

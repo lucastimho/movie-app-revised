@@ -1,4 +1,5 @@
 class ActorsController < ApplicationController
+  before_action :authenticate_user
   def index
     render json: Actor.all
   end
